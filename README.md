@@ -42,3 +42,6 @@ A premium, responsive, 1-day technical conference website built with Python/Flas
 ## Customization
 
 To modify the schedule or speakers, edit the `get_data()` function in `data.py`.
+
+
+GUSTAGOOD TUTORIALS
