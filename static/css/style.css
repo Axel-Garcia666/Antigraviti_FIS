@@ -1,0 +1,290 @@
+:root {
+    --bg-color: #0d1117;
+    --card-bg: #161b22;
+    --text-primary: #f0f6fc;
+    --text-secondary: #8b949e;
+    --accent-color: #4285f4; /* Google Blue */
+    --accent-hover: #5b9bf9;
+    --border-color: #30363d;
+    --glass-bg: rgba(22, 27, 34, 0.7);
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --gradient-hero: linear-gradient(135deg, #4285f422 0%, #db443722 50%, #f4b40022 100%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 80px 0 60px;
+    text-align: center;
+    background: var(--gradient-hero);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 40px;
+}
+
+.badge {
+    background: rgba(66, 133, 244, 0.15);
+    color: var(--accent-color);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 16px;
+}
+
+h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+    background: linear-gradient(to right, #fff, #a5b4fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+    margin-bottom: 32px;
+}
+
+.event-details {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--card-bg);
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    font-weight: 500;
+}
+
+/* Search */
+.search-container {
+    position: relative;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 16px 20px 16px 48px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-family: var(--font-body);
+    transition: all 0.3s ease;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 4px rgba(66, 133, 244, 0.15);
+}
+
+.search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+    pointer-events: none;
+}
+
+/* Schedule List */
+.schedule-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-bottom: 60px;
+}
+
+.schedule-card {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 24px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.schedule-card:hover {
+    border-color: var(--text-secondary);
+    transform: translateY(-2px);
+}
+
+.break-card {
+    background: rgba(22, 27, 34, 0.4);
+    border-style: dashed;
+    align-items: center;
+}
+
+.time-col {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-heading);
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.start-time {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.info-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.category-tag {
+    align-self: flex-start;
+    font-size: 0.75rem;
+    color: var(--accent-color);
+    background: rgba(66, 133, 244, 0.1);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.talk-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.talk-desc {
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+}
+
+.speakers-list {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+.speaker {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.speaker-avatar {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+.speaker-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+}
+
+.speaker-name {
+    font-weight: 600;
+}
+
+.speaker-role {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+.linkedin-link {
+    color: #0077b5;
+    text-decoration: none;
+    font-size: 0.8rem;
+    margin-top: 2px;
+}
+
+.linkedin-link:hover {
+    text-decoration: underline;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.no-results {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .schedule-card {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .time-col {
+        flex-direction: row;
+        gap: 12px;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+}

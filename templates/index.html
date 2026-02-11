@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header class="hero-section">
+    <div class="container">
+        <div class="hero-content">
+            <span class="badge">Google Cloud</span>
+            <h1>TechConf 2026</h1>
+            <p class="subtitle">Future of Cloud Computing</p>
+
+            <div class="event-details">
+                <div class="detail-item">
+                    <span class="icon">📅</span>
+                    <span>{{ data.date }}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="icon">📍</span>
+                    <span>{{ data.location }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="main-content">
+    <div class="container">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search talks, speakers, or categories..."
+                autocomplete="off">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+        </div>
+
+        <div class="schedule-container" id="scheduleList">
+            {% for talk in data.schedule %}
+            <div class="schedule-card {% if talk.is_break %}break-card{% endif %}" data-title="{{ talk.title }}"
+                data-category="{{ talk.category }}"
+                data-speakers="{% for s in talk.speakers %}{{ s.first_name }} {{ s.last_name }} {% endfor %}">
+                <div class="time-col">
+                    <span class="start-time">{{ talk.start_time }}</span>
+                    <span class="end-time">{{ talk.end_time }}</span>
+                </div>
+
+                <div class="info-col">
+                    {% if not talk.is_break %}
+                    <span class="category-tag">{{ talk.category }}</span>
+                    {% endif %}
+
+                    <h3 class="talk-title">{{ talk.title }}</h3>
+                    <p class="talk-desc">{{ talk.description }}</p>
+
+                    {% if not talk.is_break %}
+                    <div class="speakers-list">
+                        {% for speaker in talk.speakers %}
+                        <div class="speaker">
+                            <div class="speaker-avatar">{{ speaker.first_name[0] }}{{ speaker.last_name[0] }}</div>
+                            <div class="speaker-info">
+                                <span class="speaker-name">{{ speaker.first_name }} {{ speaker.last_name }}</span>
+                                <span class="speaker-role">{{ speaker.role }}</span>
+                                <a href="{{ speaker.linkedin }}" target="_blank" class="linkedin-link">in</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+            <div id="noResults" class="no-results hidden">
+                <p>No talks found matching your search.</p>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
